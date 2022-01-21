@@ -53,7 +53,7 @@ def get_wiki_summary(subject):
     Tsummarizer.stop_words = get_stop_words('english') #Removing the stopwords
     parser = PlaintextParser.from_string(text, Tokenizer('english')) #Parsing the text
     summary=Tsummarizer(parser.document, 10) #Creating the TextRank based Summary
-    return summary
+    return print(summary)
   
 @app.route("/")
 def home():
