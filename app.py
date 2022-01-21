@@ -4,6 +4,7 @@ import logging
 import requests
 import nltk
 import nltkmodules
+import regex as re
 from bs4 import BeautifulSoup
 from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.parsers.plaintext import PlaintextParser
@@ -53,7 +54,12 @@ def get_wiki_summary(subject):
     Tsummarizer.stop_words = get_stop_words('english') #Removing the stopwords
     parser = PlaintextParser.from_string(text, Tokenizer('english')) #Parsing the text
     summary=Tsummarizer(parser.document, 10) #Creating the TextRank based Summary
-    return print(summary)
+    final_answer=""
+    for i in summary:
+        final_answer=final_answer+str(i)
+        pass
+    final_answer=re.sub('[\d+]','', final_answer)
+    return re.sub('\[\]','', final_answer)
   
 @app.route("/")
 def home():
