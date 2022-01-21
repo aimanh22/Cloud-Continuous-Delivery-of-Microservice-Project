@@ -12,15 +12,13 @@ from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
 import pandas as pd
-from sklearn.externals import joblib
-from sklearn.preprocessing import StandardScaler
 
 
 app = Flask(__name__)
 LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
 
-@app.route('/getabstract/subject')
+@app.route('/getabstract/<subject>')
 def getabstract(subject):
     """parameter"""
  
@@ -47,9 +45,8 @@ def getabstract(subject):
     
     return text  
 
-  
-  @app.route("/get_wiki_summary/subject")
-  def get_wiki_summary(subject):
+@app.route("/get_wiki_summary/<subject>")
+def get_wiki_summary(subject):
     text = getabstract(subject)
     stemmer = Stemmer('english') #Stemmer
     Tsummarizer=TextRankSummarizer(stemmer)#Initializing the TextRank Summarizer Object with stemmer
@@ -58,8 +55,8 @@ def getabstract(subject):
     summary=Tsummarizer(parser.document, 10) #Creating the TextRank based Summary
     return summary
   
-  @app.route("/")
-  def home():
+@app.route("/")
+def home():
     html = "<h3>Wikipedia search: Use getabstract/subject to get the Wikipedia abstract of a subject and get_wiki_summary/subject to get 10 sentences that summarize the abstract.</h3>"
     return html.format(format)
 
