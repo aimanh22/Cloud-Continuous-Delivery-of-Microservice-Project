@@ -9,4 +9,5 @@ requests
 scipy 
 sklearn==0.0
 sumy==0.9.0
-
+pytest
+pylint
