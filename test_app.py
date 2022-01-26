@@ -21,4 +21,5 @@ def test_wiki():
    for p in soup.find_all('p'):
       text += p.text
       pass
-  assert getabstract("Hello")==text
+   
+   assert getabstract("Hello")==text
