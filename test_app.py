@@ -1,4 +1,5 @@
 from app import getabstract
+import requests
 
 def test_wiki():
    url = 'https://en.wikipedia.org/w/api.php'
