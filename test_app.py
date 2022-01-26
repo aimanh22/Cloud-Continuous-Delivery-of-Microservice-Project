@@ -1,5 +1,6 @@
 from app import getabstract
 import requests
+from bs4 import BeautifulSoup
 
 def test_wiki():
    url = 'https://en.wikipedia.org/w/api.php'
