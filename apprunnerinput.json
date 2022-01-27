@@ -1,7 +1,6 @@
 {
         "ServiceName": "continuous_delivery_project_container",
         "SourceConfiguration": {
-                "AuthenticationConfiguration": {"AccessRoleArn": "arn:aws:iam::$AWS_ACCOUNT_ID:role/service-role/AppRunnerECRAccessRole"},
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
                         "ImageIdentifier": "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/project_continuous_delivery:latest",
