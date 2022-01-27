@@ -1,7 +1,7 @@
 {
         "ServiceName": "continuous_delivery_project_container",
         "SourceConfiguration": {
-                AuthenticationConfiguration": { 
+                "AuthenticationConfiguration": { 
          "AccessRoleArn": "arn:aws:iam::398456367056:role/service-role/AppRunnerECRAccessRole"},
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
