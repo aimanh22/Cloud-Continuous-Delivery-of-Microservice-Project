@@ -1,26 +1,26 @@
-FROM public.ecr.aws/bitnami/golang:1.12 AS build
+#FROM public.ecr.aws/bitnami/golang:1.12 AS build
 
 #Install git
 #RUN apk add --no-cache git
 #Get the hello world package from a GitHub repository
 #RUN go get github.com/aimanh22/Cloud-Continuous-Delivery-of-Microservice-Project
-WORKDIR .
+#WORKDIR .
 # /go/src/github.com/aimanh22/Cloud-Continuous-Delivery-of-Microservice-Project
 # Build the project and send the output to /bin/App
-RUN go build -o /App
+#RUN go build -o /App
 
-FROM public.ecr.aws/bitnami/golang:1.12
+#FROM public.ecr.aws/bitnami/golang:1.12
 #Copy the build's output binary from the previous build container
-COPY --from=build /App /App
-ENTRYPOINT ["/App"]
+#COPY --from=build /App /App
+#ENTRYPOINT ["/App"]
 
-#FROM python:3.8-slim-buster
+FROM python:3.8-slim-buster
 
-#WORKDIR /python-docker
+WORKDIR /python-docker
 
-#COPY requirements.txt requirements.txt
-#RUN pip3 install -r requirements.txt
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-#COPY . .
+COPY . .
 
-#CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
