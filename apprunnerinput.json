@@ -3,7 +3,7 @@
         "SourceConfiguration": {
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
-                        "ImageIdentifier": "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/project_continuous_delivery:latest",
+                        "ImageIdentifier": "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG",
                         "ImageRepositoryType": "ECR"
                                    }
                                }
