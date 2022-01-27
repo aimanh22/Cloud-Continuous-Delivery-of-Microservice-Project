@@ -3,7 +3,7 @@ This Repository has been created for the course IDS 721 Cloud Computing at Scale
 
 ## Step 1 Creation of a Flask App 
 
-The App has been created in Python to accomplish two tasks as can be seen under:
+The App has been created in Python to accomplish two tasks as under:
 ### (i) Get the Abstract of a Topic on Wikipedia
 
 ### (ii) Summarize the Abstract of a Topic on Wikipedia in 10 sentences
@@ -19,7 +19,16 @@ The Dockerfile helps containerize the app when the image is built using the dock
 
 ## Step 3 Creation of Build System File
 
-The buildspec.yml file is created to help build the system. It lists down the steps to build the system. For this app, the buildspec.yml file 
+The buildspec.yml file is created to help build the system. It lists down the steps to do so. For this app, the buildspec.yml file
+
+#### Creates an ECR Image
+
+#### Containerizes the App
+
+#### Pushes the containerized app to the ECR
+
+#### Creates an AppRunner Service for automatically deploying the containerized app using the ECR Image
+
 
 ## Step 4 Connecting Repo to CodeBuild
 
