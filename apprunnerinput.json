@@ -3,7 +3,7 @@
         "SourceConfiguration": {
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
-                        "ImageIdentifier": "$URI_IMAGE" ,
+                        "ImageIdentifier": $URI_IMAGE ,
                         "ImageRepositoryType": "ECR"
                                    }
                                }
