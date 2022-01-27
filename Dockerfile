@@ -14,7 +14,7 @@
 #COPY --from=build /App /App
 #ENTRYPOINT ["/App"]
 
-FROM python:3.8-slim-buster
+FROM public.ecr.aws/bitnami/python:3.8
 
 WORKDIR /python-docker
 
