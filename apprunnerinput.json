@@ -3,7 +3,7 @@
         "SourceConfiguration": {
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
-                        "ImageIdentifier": ${{secrets.URI_IMAGE}},
+                        "ImageIdentifier": $URI_IMAGE,
                         "ImageRepositoryType": "ECR"
                                    }
                                }
