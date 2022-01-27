@@ -3,23 +3,23 @@ This Repository has been created for the course IDS 721 Cloud Computing at Scale
 
 ## Step 1 Creation of a Flask App 
 
-An App has been created in Python to accomplish two tasks:
+The App has been created in Python to accomplish two tasks as can be seen under:
 ### (i) Get the Abstract of a Topic on Wikipedia
 
 ### (ii) Summarize the Abstract of a Topic on Wikipedia in 10 sentences
 
 ## Step 2 Creation of Makefile and Dockerfile
 
-The Makefile runs important housekeeping tasks using the make command in linux and includes the following:
+The Makefile runs important housekeeping tasks using the make command in linux. It includes the following:
 1. Make install: This step installs software via the make install command
 2. Make lint: This step checks for syntax errors via the make lint command
 3. Make test: This step runs tests via the make test command
 
-The Dockerfile helps place all the in place to containerize the app.
+The Dockerfile helps containerize the app when the image is built using the docker build command.
 
 ## Step 3 Creation of Build System File
 
-This fiile is created to help build the system from scratch. It 
+The buildspec.yml file is created to help build the system. It lists down the steps to build the system. For this app, the buildspec.yml file 
 
 ## Step 4 Connecting Repo to CodeBuild
 
