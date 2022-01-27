@@ -1,5 +1,5 @@
 {
-        "ServiceName": “continuous_delivery_project_container”,
+        "ServiceName": "continuous_delivery_project_container",
         "SourceConfiguration": {
                 "AuthenticationConfiguration": {"AccessRoleArn": "arn:aws:iam::$AWS_ACCOUNT_ID:role/service-role/AppRunnerECRAccessRole"},
                 "AutoDeploymentsEnabled": true,
