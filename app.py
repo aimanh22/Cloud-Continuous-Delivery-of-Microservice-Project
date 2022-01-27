@@ -2,8 +2,8 @@ from flask import Flask
 from flask.logging import create_logger
 import logging
 import requests
-import nltk
-import nltkmodules
+#import nltk
+#import nltkmodules
 import regex as re
 from bs4 import BeautifulSoup
 from sumy.summarizers.text_rank import TextRankSummarizer
