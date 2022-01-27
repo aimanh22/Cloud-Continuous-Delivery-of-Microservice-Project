@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 from flask.logging import create_logger
 import logging
 import requests
@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
-from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
 
@@ -40,8 +39,7 @@ def getabstract(subject):
     text = ''
  
     for p in soup.find_all('p'):
-      text += p.text
-      pass
+        text += p.text
     
     return text  
 
@@ -56,14 +54,13 @@ def get_wiki_summary(subject):
     final_answer=""
     for i in summary:
         final_answer=final_answer+str(i)
-        pass
-    final_answer=re.sub('[\d+]','', final_answer)
-    return re.sub('\[\]','', final_answer)
+    final_answer=re.sub(r'[\d+]','', final_answer)
+    return re.sub(r'\[\]','', final_answer)
   
 @app.route("/")
 def home():
-    html = "<h3>Hi! There!Wikipedia search: Use getabstract/subject to get the Wikipedia abstract of a subject and get_wiki_summary/subject to get 10 sentences that summarize the abstract.</h3>"
+    html = "<h3>Wikipedia search: Use getabstract/subject to get the Wikipedia abstract of a subject and get_wiki_summary/subject to get 10 sentences that summarize the abstract.</h3>"
     return html.format(format)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
