@@ -1,22 +1,18 @@
-language: python
-python:
-  - 3.6
-before_install:
-  - python --version
-  - pip install -U pip
-  - pip install -U pytest pytest-cov
-  - pip install codecov
-script: pytest
-after_success:
-  - pytest --cov=./
-  - codecov
-deploy:
-  provider: elasticbeanstalk
-  access_key_id:
-    secure: $AWS_ACCESS_KEY_ID
-  secret_access_key:
-    secure: $AWS_ACCESS_KEY_SECRET
-  region: $AWS_REGION
-  app: $AWS_EB_APPLICATION
-  env: $AWS_EB_ENVIRONMENT
-  bucket_name: $AWS_EB_S3_BUCKET
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
