@@ -1,10 +1,13 @@
-FROM python:3.8-slim-buster
+FROM golang:1.12-alpine AS build
+#Install git
+RUN apk add --no-cache git
+#Get the hello world package from a GitHub repository
+RUN go get github.com/aimanh22/Cloud-Continuous-Delivery-of-Microservice-Project
+WORKDIR /go/src/github.com/aimanh22/Cloud-Continuous-Delivery-of-Microservice-Project
+# Build the project and send the output to /bin/App
+RUN go build -o /bin/App
 
-WORKDIR /python-docker
-
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
-COPY . .
-
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+FROM golang:1.12-alpine
+#Copy the build's output binary from the previous build container
+COPY --from=build /bin/App /bin/App
+ENTRYPOINT ["/bin/App"]
