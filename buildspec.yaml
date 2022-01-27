@@ -7,18 +7,6 @@ phases:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - aws ecr create-repository --repository-name $IMAGE_REPO_NAME||true
       - make all
-      - aws apprunner create-service --cli-input-json "`cat`"{
-   "ServiceName": continuous_delivery_project”,
-   "SourceConfiguration": { 
-      "AuthenticationConfiguration": { 
-         "AccessRoleArn": "arn:aws:iam::$AWS_ACCOUNT_ID:role/service-role/AppRunnerECRAccessRole"
-      },
-      "AutoDeploymentsEnabled": true,
-         "ImageIdentifier": "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG",
-         "ImageRepositoryType": “ECR”
-      }
-   }
-}
   build:
     commands:
       - echo Build started on `date`
