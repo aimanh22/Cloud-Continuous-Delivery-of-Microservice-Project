@@ -62,7 +62,7 @@ def get_wiki_summary(subject):
   
 @app.route("/")
 def home():
-    html = "<h3>Wikipedia search: Use getabstract/subject to get the Wikipedia abstract of a subject and get_wiki_summary/subject to get 10 sentences that summarize the abstract.</h3>"
+    html = "<h3>Hi! There!Wikipedia search: Use getabstract/subject to get the Wikipedia abstract of a subject and get_wiki_summary/subject to get 10 sentences that summarize the abstract.</h3>"
     return html.format(format)
 
 if __name__ == "__main__":
