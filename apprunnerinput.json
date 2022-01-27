@@ -3,7 +3,7 @@
         "SourceConfiguration": {
                 "AutoDeploymentsEnabled": true,
                 "ImageRepository": {
-                        "ImageIdentifier": $URI_IMAGE ,
+                        "ImageIdentifier": "398456367056.dkr.ecr.us-east-1.amazonaws.com/project_continuous_delivery:latest" ,
                         "ImageRepositoryType": "ECR"
                                    }
                                }
