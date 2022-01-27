@@ -13,3 +13,14 @@ FROM public.ecr.aws/bitnami/golang:1.12
 #Copy the build's output binary from the previous build container
 COPY --from=build /App /App
 ENTRYPOINT ["/App"]
+
+#FROM python:3.8-slim-buster
+
+#WORKDIR /python-docker
+
+#COPY requirements.txt requirements.txt
+#RUN pip3 install -r requirements.txt
+
+#COPY . .
+
+#CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
