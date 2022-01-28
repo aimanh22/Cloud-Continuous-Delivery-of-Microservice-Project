@@ -27,7 +27,7 @@ The buildspec.yml file is created to help build the system. It lists down the st
 
 #### Pushes the containerized app to the ECR
 
-#### Creates an AppRunner Service for automatically deploying the containerized app using the ECR Image
+#### Creates an AppRunner Service for automatically deploying the containerized app using the ECR Image (or do nothing if service already exists)
 
 
 ## Step 4 Connecting Repo to CodeBuild
