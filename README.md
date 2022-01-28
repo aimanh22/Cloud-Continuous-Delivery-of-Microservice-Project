@@ -19,9 +19,9 @@ The Dockerfile helps containerize the app when the image is built using the dock
 
 ## Step 3 Creation of Build System File
 
-The buildspec.yml file is created to help build the system. It lists down the steps to do so. For this app, the buildspec.yml file
+The buildspec.yml file is created to help build the system. It lists down the steps to do so. For this app, it
 
-#### Creates an ECR Image
+#### It logins to the ECR and creates an ECR Repository (if it already doesn't exist)
 
 #### Containerizes the App
 
@@ -32,12 +32,10 @@ The buildspec.yml file is created to help build the system. It lists down the st
 
 ## Step 4 Connecting Repo to CodeBuild
 
-This Github Repo is then 
+This Github Repo is then connected to the CodeBuild for Continuous Integration and Deployment each time a new code is pushed to the Github Repo.
 
 ## Step 5 Running the App
 
+The App can then be run using the url created by the AppRunner.
 
-
-
-The App is then containerized using the docker command as in the buildspec.yml. 
 
